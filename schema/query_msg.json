@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "get_charge"
+      ],
+      "properties": {
+        "get_charge": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/ChargeId"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "ChargeId": {
+      "type": "object",
+      "required": [
+        "authz_id",
+        "provider_name"
+      ],
+      "properties": {
+        "authz_id": {
+          "type": "string"
+        },
+        "provider_name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

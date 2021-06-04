@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExecuteMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "record_charge"
+      ],
+      "properties": {
+        "record_charge": {
+          "type": "object",
+          "required": [
+            "amount",
+            "id"
+          ],
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "id": {
+              "$ref": "#/definitions/ChargeId"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "settle"
+      ],
+      "properties": {
+        "settle": {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/ChargeId"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "definitions": {
+    "ChargeId": {
+      "type": "object",
+      "required": [
+        "authz_id",
+        "provider_name"
+      ],
+      "properties": {
+        "authz_id": {
+          "type": "string"
+        },
+        "provider_name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
